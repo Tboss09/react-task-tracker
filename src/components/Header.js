@@ -1,13 +1,19 @@
 import React from 'react'
-const Header = ({ title }) => {
-    return (
+import Button from "./Button";
 
+const Header = ({ title }) => {
+
+    const onClick = () => {
+        console.log("Button was clicked");
+    }
+
+    return (
         // When using inline styles in jsx, put it in braces*2 -->{{}}
         //Or create an object,input the style then replace it with just one brace   -->{{}}
-
-        <header>
+        <header className="header" >
             <h1>{title}</h1>
-        </header>
+            <Button name="Add" onClick={onClick} />
+        </header >
     )
 }
 
