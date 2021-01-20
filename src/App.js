@@ -1,14 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+
 
 function App() {
-  const name = "Tayo"
-  let x = false;
   return (
     <div className="container">
-      <h1>Hello From React</h1>
-      <h1>Hello {x ? "Tayo" : "Akosile"}</h1>
-    </div>
+      <Header title="Task Tracker"/>
+    </div >
   );
 }
 
