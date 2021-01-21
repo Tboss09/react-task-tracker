@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 
 // snippet(rafce)
 
-const Header = ({ title, onClick }) => {
+const Header = ({ title, onAdd, showAdd }) => {
     return (
         <header className="header">
             <h1>{title}</h1>
-            <Button name="Add" color="green" onClick={onClick} />
+            <Button name={showAdd ? "Close Task" : "Add Task"} color={showAdd ? "red" : "green"} onClick={onAdd} />
         </header>
     )
 }
