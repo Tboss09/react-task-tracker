@@ -15,14 +15,14 @@ const App = () => {
         text: "Doctor's Apartment",
         day: "Feb 12 2021",
         reminder: true,
-        id: 3
+        id: 1
       },
 
       {
         text: "Hangout At Friends House",
         day: "March 10pm 2021",
         reminder: true,
-        id: 3
+        id: 2
       },
 
       {
@@ -73,9 +73,6 @@ const App = () => {
 
   // Toggle Reminder
   const toggleReminder = (id) => {
-
-
-
     setTasks(tasks.map(task => task.id === id
       ? { ...task, reminder: !task.reminder } : task))
 
