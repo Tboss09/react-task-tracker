@@ -2,11 +2,29 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
+import Footer from './components/Footer';
+import About from './components/About';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(true);
   const [tasks, setTasks] = useState(
     [
+      {
+        text: "Doctor's Apartment",
+        day: "Feb 12 2021",
+        reminder: true,
+        id: 3
+      },
+
+      {
+        text: "Hangout At Friends House",
+        day: "March 10pm 2021",
+        reminder: true,
+        id: 3
+      },
+
       {
         text: "Existing Tasks",
         day: "11pm",
@@ -15,7 +33,7 @@ const App = () => {
       },
       {
         text: "Go To bed ",
-        day: "11pm",
+        day: "Feb 06pm 2021",
         reminder: false,
         id: 4
       }
@@ -78,20 +96,29 @@ const App = () => {
 
 
   return (
-    <div className="container">
-      <Header title="Task Runner"
-        onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
+    <Router>
+      <div className="container">
+        <Header title="Task Runner"
+          onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
 
-      {showAddTask && < AddTask onAdd={addTask} />}
 
-      {tasks.length > 0
-        ?
-        < Tasks tasksByTayo={tasks}
-          onToggle={toggleReminder} onDelete={deleteTask} />
-        :
-        "No Task To Show"}
 
-    </div>
+        <Route path="/" exact render={() => (
+          <>
+            {showAddTask && < AddTask onAdd={addTask} />}
+            {tasks.length > 0
+              ?
+              < Tasks tasksByTayo={tasks}
+                onToggle={toggleReminder} onDelete={deleteTask} />
+              :
+              "No Task To Show"}
+          </>
+        )} />
+
+        <Route path="/about" component={About} />
+        <Footer />
+      </div>
+    </Router>
   )
 }
 export default App;
