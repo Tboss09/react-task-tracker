@@ -21,28 +21,11 @@ const App = () => {
       }
     ])
 
-  // useEffect(() => {
-  //   const getTasks = async () => {
-  //     const taskFromServer = await fetchTasks();
-  //     setTasks(taskFromServer)
-  //   }
-  //   getTasks();
-  // }, [])
-
-  // Fetch Task From Api 
-
-  // const fetchTasks = async () => {
-  //   const res = await fetch("http://localhost:5000/tasks")
+  // const fetchTask = async (id) => {
+  //   const res = await fetch(`http://localhost:5000/tasks/${id}`)
   //   const data = await res.json();
   //   return data;
   // }
-
-  // Fetch Task From Api 
-  const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`)
-    const data = await res.json();
-    return data;
-  }
 
 
   // Add Tasks
